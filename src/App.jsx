@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import LandingPage from "./pages/LandingPage";
 import CouponsPage from "./pages/CouponsPage";
+import Message from "./pages/Message";
 import RoadmapPage from "./pages/RoadmapPage";
 import CrosswordPage from "./pages/CrosswordPage";
 
@@ -13,8 +14,8 @@ const App = () => {
     switch (currentPage) {
       case "home":
         return <LandingPage />;
-      case "coupons":
-        return <CouponsPage />;
+      case "messages":
+        return <Message />
       case "milestones":
         return <RoadmapPage />;
       case "crossword":

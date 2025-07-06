@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Mail } from "lucide-react";
+import { Import, Info, Mail } from "lucide-react";
 import LetterModal from "../components/LetterModal";
 import TimeCounter from "../components/TimeCounter";
 import bouquetImage from "../assets/bouquet.jpeg";
@@ -32,10 +32,10 @@ const LandingPage = () => {
             </p>
             <button
               onClick={() => setShowLetter(true)}
-              className="bg-white text-black px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all duration-200 flex items-center space-x-2 mx-auto lg:mx-0"
+              className="cursor-pointer bg-white text-black px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all duration-200 flex items-center space-x-2 mx-auto lg:mx-0"
             >
-              <Mail className="h-5 w-5" />
-              <span>Read My Letter</span>
+              <Info className="h-5 w-5" />
+              <span>about this website</span>
             </button>
           </div>
 
@@ -47,7 +47,7 @@ const LandingPage = () => {
                     <img
                       src={bouquetImage}
                       alt="Beautiful bouquet of tulips"
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-cover"
                       onError={(e) => {
                         // Fallback to emoji if image fails to load
                         e.target.style.display = "none";

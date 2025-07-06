@@ -1,11 +1,11 @@
 import React from "react";
-import { Heart, Gift, Map, Grid3x3 } from "lucide-react";
+import { Heart, Gift, Map, Grid3x3, Mail } from "lucide-react";
 
 const Navbar = ({ currentPage, setCurrentPage }) => {
   const navItems = [
     { id: "home", label: "Home", icon: Heart },
-    { id: "coupons", label: "Coupons", icon: Gift },
-    { id: "milestones", label: "Roadmap", icon: Map },
+    { id: "milestones", label: "Milestone", icon: Map },
+    { id: "messages", label: "Message", icon: Mail }, 
     { id: "crossword", label: "Crossword", icon: Grid3x3 },
   ];
 
