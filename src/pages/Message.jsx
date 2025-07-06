@@ -142,7 +142,7 @@ const Message = () => {
             <h1 className="text-2xl font-bold leading-tight text-gray-300">
               Messages
             </h1>
-            <p className="text-gray-400">Our love letters through time</p>
+            <p className="text-gray-400">since the day we met</p>
           </div>
           <div className="flex items-center gap-4">
             <div className="relative">
