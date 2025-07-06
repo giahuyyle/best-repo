@@ -75,8 +75,8 @@ const Message = () => {
               </button>
             </div>
 
-            <h2 className="text-xl font-medium mb-6">
-              {selectedMessage.subject}
+            <h2 className="text-xl font-semi-bold mb-6">
+              subject: {selectedMessage.subject}
             </h2>
 
             <div className="prose prose-invert max-w-none">
