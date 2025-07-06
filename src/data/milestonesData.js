@@ -14,7 +14,6 @@ export const getMilestones = async () => {
         id: key,
         ...value
       }));
-      console.log("success", products);
       return products;
     }
     

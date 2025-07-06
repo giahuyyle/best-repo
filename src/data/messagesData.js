@@ -14,7 +14,6 @@ export const getMessages = async () => {
         id: key,
         ...value
       }));
-      console.log("success", products);
       return products;
     }
     
