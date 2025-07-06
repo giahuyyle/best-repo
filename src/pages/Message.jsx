@@ -1,65 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Heart, Search, ArrowLeft, Star } from "lucide-react";
+import { getMessages } from "../data/messagesData";
 
 const Message = () => {
   const [selectedMessage, setSelectedMessage] = useState(null);
+  const [messages, setMessages] = useState([]);
 
-  const messages = [
-    {
-      id: 1,
-      sender: "truc",
-      date: "2025-07-06",
-      subject: "Good morning, my love ☀️",
-      content:
-        "woke up thinking about you again... can't believe it's been 2 years already. remember when we first met at that coffee shop? you were so shy but your smile made my whole day brighter. i love how we've grown together, how you always know exactly what to say when i'm having a rough day. thank you for being my person, huy. can't wait to see what the next chapter holds for us 💕",
-      starred: true,
-    },
-    {
-      id: 2,
-      sender: "huy",
-      date: "2025-07-05",
-      subject: "thinking of you",
-      content:
-        "just wanted to say i'm so grateful for you, truc. the way you laugh at my terrible jokes, how you always steal my hoodies but look so much better in them than i do. i love our late night conversations about everything and nothing. you make the ordinary feel extraordinary. love you more than words can express ❤️",
-      starred: false,
-    },
-    {
-      id: 3,
-      sender: "truc",
-      date: "2025-07-04",
-      subject: "remember this? 📸",
-      content:
-        "found this old photo of us from our first date... you were so nervous you spilled coffee on your shirt! but even then i knew you were special. the way you made me laugh even when you were embarrassed, how you offered to walk me home even though it was completely out of your way. i fell for your kindness first, then everything else followed. still falling for you every single day 🥰",
-      starred: true,
-    },
-    {
-      id: 4,
-      sender: "huy",
-      date: "2025-07-03",
-      subject: "our song came on the radio",
-      content:
-        "was driving to work and our song started playing... immediately thought of you dancing in the kitchen last sunday morning. you were making pancakes and singing off-key but it was the most beautiful thing i'd ever heard. i love how comfortable we've become with each other, how we can be completely ourselves. you're my favorite person, truc. always and forever 💫",
-      starred: false,
-    },
-    {
-      id: 5,
-      sender: "truc",
-      date: "2025-07-02",
-      subject: "just because 💝",
-      content:
-        "no special reason for this message, just wanted to remind you how much you mean to me. you're the first person i want to tell good news to, the one i turn to when things get tough. you've seen me at my worst and somehow still choose to love me. that means everything. thank you for being patient with me, for believing in us even when i have my doubts. you're my home, huy 🏠",
-      starred: true,
-    },
-    {
-      id: 6,
-      sender: "huy",
-      date: "2025-07-01",
-      subject: "2 years ago today...",
-      content:
-        "it was exactly 2 years ago that i first told you i loved you. i was so scared you'd think it was too soon, but you just smiled and said you'd been waiting for me to say it. best risk i ever took. every day with you feels like an adventure, even the quiet ones where we just exist together. here's to many more years of loving you, truc. you're my forever person 💍",
-      starred: true,
-    },
-  ];
+  useEffect(() => {
+    const fetchMessages = async () => {
+      try {
+        const data = await getMessages();
+        setMessages(data);
+      } catch (error) {
+        console.error("Error fetching messages:", error);
+      }
+    };
+    fetchMessages();
+  }, []);
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
