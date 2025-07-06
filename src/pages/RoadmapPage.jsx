@@ -43,10 +43,9 @@ const RoadmapPage = () => {
     <div className="min-h-screen pt-16">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold text-white mb-4">Our Love Story</h1>
+          <h1 className="text-5xl font-bold text-white mb-4">our journey</h1>
           <p className="text-xl text-white/80 max-w-2xl mx-auto">
-            Every step of our journey together, from the very first moment to
-            today.
+            step-by-step, moment-by-moment
           </p>
         </div>
 
@@ -90,7 +89,6 @@ const RoadmapPage = () => {
                       index % 2 === 0 ? "pr-12" : "pl-12"
                     }`}
                   >
-                    <h1>abc</h1>
                     <div
                       className={`bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 ${
                         visibleItems.has(index) ? "scale-100" : "scale-95"
@@ -107,7 +105,7 @@ const RoadmapPage = () => {
                             <img
                               src={milestone.image}
                               alt={milestone.title}
-                              className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
+                              className="w-full h-auto object-contain hover:scale-105 transition-transform duration-300"
                             />
                           </div>
                         )}
