@@ -1,9 +1,38 @@
+import { ref, get, getDatabase } from 'firebase/database';
+import { app } from '../config/firebase';
+
+const db = getDatabase(app);
+
+export const getMilestones = async () => {
+  try {
+    const productsRef = ref(db, 'milestones');
+    const snapshot = await get(productsRef);
+    
+    if (snapshot.exists()) {
+      // Convert Firebase object to array format
+      const products = Object.entries(snapshot.val()).map(([key, value]) => ({
+        id: key,
+        ...value
+      }));
+      console.log("success", products);
+      return products;
+    }
+    
+    console.log("fail")
+    return [];
+  } catch (error) {
+    console.error('Error fetching milestones:', error);
+    return [];
+  }
+};
+
 export const milestonesData = [
   {
     date: "July 2023",
     title: "First Meeting",
     description: "The day our eyes met and everything changed",
     emoji: "💫",
+    image: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Phoenicopterus_ruber_in_S%C3%A3o_Paulo_Zoo.jpg"
   },
   {
     date: "August 2023",

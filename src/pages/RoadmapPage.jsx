@@ -1,8 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { milestonesData } from "../data/milestonesData";
+import { getMilestones } from "../data/milestonesData";
 
 const RoadmapPage = () => {
+  const [milestonesData, setMilestonesData] = useState([]);
   const [visibleItems, setVisibleItems] = useState(new Set());
+  
+  useEffect(() => {
+    const fetchMilestones = async () => {
+      try {
+        const data = await getMilestones();
+        setMilestonesData(data);
+      } catch (error) {
+        console.error("Error fetching milestones:", error);
+      }
+    };
+    fetchMilestones();
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -25,8 +38,7 @@ const RoadmapPage = () => {
     elements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
-  }, []);
-
+  }, [milestonesData]);
   return (
     <div className="min-h-screen pt-16">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -72,11 +84,13 @@ const RoadmapPage = () => {
                     index % 2 === 0 ? "justify-start" : "justify-end"
                   }`}
                 >
+                  
                   <div
                     className={`w-full max-w-md ${
                       index % 2 === 0 ? "pr-12" : "pl-12"
                     }`}
                   >
+                    <h1>abc</h1>
                     <div
                       className={`bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 ${
                         visibleItems.has(index) ? "scale-100" : "scale-95"
@@ -87,7 +101,17 @@ const RoadmapPage = () => {
                           index % 2 === 0 ? "lg:text-left" : "lg:text-right"
                         }`}
                       >
-                        <div className="text-4xl mb-4">{milestone.emoji}</div>
+                        {/* Image */}
+                        {milestone.image && (
+                          <div className="mb-4 overflow-hidden rounded-lg">
+                            <img
+                              src={milestone.image}
+                              alt={milestone.title}
+                              className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
+                            />
+                          </div>
+                        )}
+
                         <h3 className="text-xl font-bold text-white mb-2">
                           {milestone.title}
                         </h3>
@@ -96,6 +120,9 @@ const RoadmapPage = () => {
                         </p>
                         <p className="text-white/80 text-sm leading-relaxed">
                           {milestone.description}
+                        </p>
+                        <p className="text-white/80 text-sm leading-relaxed">
+                          {milestone.location}
                         </p>
                       </div>
                     </div>
