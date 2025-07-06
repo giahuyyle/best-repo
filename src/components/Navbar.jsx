@@ -5,7 +5,7 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
   const navItems = [
     { id: "home", label: "Home", icon: Heart },
     { id: "coupons", label: "Coupons", icon: Gift },
-    { id: "roadmap", label: "Roadmap", icon: Map },
+    { id: "milestones", label: "Roadmap", icon: Map },
     { id: "crossword", label: "Crossword", icon: Grid3x3 },
   ];
 
@@ -14,8 +14,7 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-2">
-            <Heart className="h-8 w-8 text-white" />
-            <span className="text-xl font-bold text-white">Our Love Story</span>
+            <span className="text-xl font-bold text-white">truc va huy</span>
           </div>
           <div className="flex space-x-8">
             {navItems.map(({ id, label, icon: Icon }) => (

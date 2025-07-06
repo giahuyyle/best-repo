@@ -15,7 +15,7 @@ const App = () => {
         return <LandingPage />;
       case "coupons":
         return <CouponsPage />;
-      case "roadmap":
+      case "milestones":
         return <RoadmapPage />;
       case "crossword":
         return <CrosswordPage />;

@@ -2,8 +2,14 @@ import React, { useState } from "react";
 import { Mail } from "lucide-react";
 import LetterModal from "../components/LetterModal";
 import TimeCounter from "../components/TimeCounter";
+import bouquetImage from "../assets/bouquet.jpeg";
 
 const LandingPage = () => {
+  const relationshipStart = new Date("2023-07-07");
+  const now = new Date();
+  const diff = now - relationshipStart;
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const years = Math.floor(days / 365);
   const [showLetter, setShowLetter] = useState(false);
 
   return (
@@ -13,14 +19,16 @@ const LandingPage = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="text-center lg:text-left">
             <h1 className="text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-              Happy Anniversary,
+              happy two-year anniversary,
               <span className="block text-5xl lg:text-6xl text-gray-300 mt-2">
-                My Stinki Boo
+                trúc thúi của anh
               </span>
             </h1>
+            <p className="text-xl text-white/80 max-w-lg">
+              {years}-year journey that went by too fast
+            </p>
             <p className="text-xl text-white/80 mb-8 max-w-lg">
-              Two incredible years of love, laughter, and unforgettable
-              memories. You make every day brighter just by being you.
+              full of memories, happiness and love
             </p>
             <button
               onClick={() => setShowLetter(true)}
@@ -35,9 +43,27 @@ const LandingPage = () => {
             <div className="relative">
               <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
                 <div className="text-center">
-                  <div className="text-8xl mb-4">🌷</div>
-                  <p className="text-white/70 text-sm">A beautiful bouquet</p>
-                  <p className="text-white/70 text-sm">for my beautiful love</p>
+                  <div className="w-100 h-100 mx-auto mb-4 rounded-2xl overflow-hidden bg-white/5 flex items-center justify-center">
+                    <img
+                      src={bouquetImage}
+                      alt="Beautiful bouquet of tulips"
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      onError={(e) => {
+                        // Fallback to emoji if image fails to load
+                        e.target.style.display = "none";
+                        e.target.nextSibling.style.display = "block";
+                      }}
+                    />
+                    <div className="text-8xl" style={{ display: "none" }}>
+                      🌷
+                    </div>
+                  </div>
+                  <p className="text-white/70 text-sm">
+                    the most beautiful, dropdead gorgeous boo
+                  </p>
+                  <p className="text-white/70 text-sm">
+                    holding her favorite flower bouquet
+                  </p>
                 </div>
               </div>
             </div>
